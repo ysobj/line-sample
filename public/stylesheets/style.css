@@ -1,0 +1,25 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+.message-container{
+  margin: 5px 10px;
+}
+.message-body{
+  display: flex;
+}
+
+.avatar img{
+  border-radius: 4px;
+}
+.comment-info{
+  margin-left: 5px;
+  font-size: 10px;
+  color: gray;
+}
+.comment-body{
+  margin-left: 5px;
+}

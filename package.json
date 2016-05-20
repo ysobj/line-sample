@@ -1,0 +1,22 @@
+{
+  "name": "line-sample",
+  "version": "0.0.0",
+  "description": "LINE BOT sample",
+  "main": "app.js",
+  "scripts": {
+    "start": "node-dev app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.11.0",
+    "body-parser": "^1.15.0",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "mongo": "^0.1.0",
+    "mongodb": "^2.1.16",
+    "morgan": "^1.7.0",
+    "response-time": "^2.3.1"
+  }
+}
