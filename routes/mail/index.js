@@ -19,15 +19,17 @@ router.route('/mail').post(function(req,res,next){
   };
   var headers = {};
   headers['Content-Type'] = 'application/json';
-  headers['X-mail-ChannelID'] = global.channelId;
-  headers['X-mail-ChannelSecret'] = global.channelSecret;
-  headers['X-mail-Trusted-User-With-ACL'] = global.mid;
+  headers['X-Line-ChannelID'] = global.channelId;
+  headers['X-Line-ChannelSecret'] = global.channelSecret;
+  headers['X-Line-Trusted-User-With-ACL'] = global.mid;
+  //var message = createMessage("fixed");
   var message = createMessage(req.body.text);
-  axios.post('https://trialbot-api.mail.me/v1/events',
+  axios.post('https://trialbot-api.line.me/v1/events',
       message,
       {
         headers:headers
       });
+  //console.log(req.body);
   console.log(message);
   res.status(201).json();
 });

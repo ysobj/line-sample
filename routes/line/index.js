@@ -86,14 +86,12 @@ router.route('/line').get(function(req,res,next){
   headers['X-Line-ChannelID'] = global.channelId;
   headers['X-Line-ChannelSecret'] = global.channelSecret;
   headers['X-Line-Trusted-User-With-ACL'] = global.mid;
-  /*
   axios.post('https://trialbot-api.line.me/v1/events',
       createMessage(text),
       {
         headers:headers
       });
-  */
-  console.log(createMessage(text));
+  //console.log(createMessage(text));
   res.status(201).json();
 });
 
