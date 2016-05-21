@@ -4,20 +4,27 @@ var router = express.Router();
 var mongodb = require('mongodb');
 var axios = require('axios');
 var global = require('../../env.json');
+var bodyParser = require('body-parser');
 var line;
-
 
 mongodb.MongoClient.connect('mongodb://localhost:27017/expsample',function(err,db){
   line = db.collection('line');
 });
 
 router.route('/line').get(function(req,res,next){
+  console.log(req);
+  console.log(req.query.contents);
+  console.log(req.query.test);
   line.find().toArray(function(err,list){
     res.json(list);
   });
 })
-.post(function(req,res,next){
+.post(bodyParser.json(),function(req,res,next){
+  console.log(req.body);
   var result = req.body.result;
+  if(result == null){
+    result = [];
+  }
   var from = '';
   var text = '';
   result.forEach(function(tmp){
@@ -79,12 +86,14 @@ router.route('/line').get(function(req,res,next){
   headers['X-Line-ChannelID'] = global.channelId;
   headers['X-Line-ChannelSecret'] = global.channelSecret;
   headers['X-Line-Trusted-User-With-ACL'] = global.mid;
+  /*
   axios.post('https://trialbot-api.line.me/v1/events',
       createMessage(text),
       {
         headers:headers
       });
-
+  */
+  console.log(createMessage(text));
   res.status(201).json();
 });
 
